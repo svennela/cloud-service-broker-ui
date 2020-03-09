@@ -1,0 +1,46 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="cloudServiceBrokerUI">
+            <h2><span jhiTranslate="cloudservicebrokeruiApp.cloudServiceBrokerUI.detail.title">Cloud Service Broker UI</span> {{ cloudServiceBrokerUI.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="cloudservicebrokeruiApp.cloudServiceBrokerUI.brokerName">Broker Name</span></dt>
+                <dd>
+                    <span>{{ cloudServiceBrokerUI.brokerName }}</span>
+                </dd>
+                <dt><span jhiTranslate="cloudservicebrokeruiApp.cloudServiceBrokerUI.brokerUrl">Broker Url</span></dt>
+                <dd>
+                    <span>{{ cloudServiceBrokerUI.brokerUrl }}</span>
+                </dd>
+                <dt><span jhiTranslate="cloudservicebrokeruiApp.cloudServiceBrokerUI.userName">User Name</span></dt>
+                <dd>
+                    <span>{{ cloudServiceBrokerUI.userName }}</span>
+                </dd>
+                <dt><span jhiTranslate="cloudservicebrokeruiApp.cloudServiceBrokerUI.password">Password</span></dt>
+                <dd>
+                    <span>{{ cloudServiceBrokerUI.password }}</span>
+                </dd>
+                <dt><span jhiTranslate="cloudservicebrokeruiApp.cloudServiceBrokerUI.env">Env</span></dt>
+                <dd>
+                    <span>{{ cloudServiceBrokerUI.env }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/cloud-service-broker-ui', cloudServiceBrokerUI.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>
