@@ -1,0 +1,74 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-serviceinstance-heading" jhiTranslate="cloudservicebrokeruiApp.serviceinstance.home.createOrEditLabel">Create or edit a Serviceinstance</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="cloudservicebrokeruiApp.serviceinstance.instanceId" for="field_instanceId">Instance Id</label>
+                    <input type="text" class="form-control" name="instanceId" id="field_instanceId"
+                           formControlName="instanceId"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="cloudservicebrokeruiApp.serviceinstance.name" for="field_name">Name</label>
+                    <input type="text" class="form-control" name="name" id="field_name"
+                           formControlName="name"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="cloudservicebrokeruiApp.serviceinstance.serviceId" for="field_serviceId">Service Id</label>
+                    <input type="text" class="form-control" name="serviceId" id="field_serviceId"
+                           formControlName="serviceId"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="cloudservicebrokeruiApp.serviceinstance.planId" for="field_planId">Plan Id</label>
+                    <input type="text" class="form-control" name="planId" id="field_planId"
+                           formControlName="planId"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="cloudservicebrokeruiApp.serviceinstance.spaceGuid" for="field_spaceGuid">Space Guid</label>
+                    <input type="text" class="form-control" name="spaceGuid" id="field_spaceGuid"
+                           formControlName="spaceGuid"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="cloudservicebrokeruiApp.serviceinstance.organizationGuid" for="field_organizationGuid">Organization Guid</label>
+                    <input type="text" class="form-control" name="organizationGuid" id="field_organizationGuid"
+                           formControlName="organizationGuid"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="cloudservicebrokeruiApp.serviceinstance.operationType" for="field_operationType">Operation Type</label>
+                    <input type="text" class="form-control" name="operationType" id="field_operationType"
+                           formControlName="operationType"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="cloudservicebrokeruiApp.serviceinstance.operationId" for="field_operationId">Operation Id</label>
+                    <input type="text" class="form-control" name="operationId" id="field_operationId"
+                           formControlName="operationId"/>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

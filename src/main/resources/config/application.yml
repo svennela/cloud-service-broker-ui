@@ -71,6 +71,21 @@ spring:
     jpa:
       repositories:
         bootstrap-mode: deferred
+  cloud:
+    openservicebroker:
+      catalog:
+        services:
+          - id: example-service
+            name: example
+            description: A simple example
+            bindable: true
+            tags:
+              - example
+              - tags
+            plans:
+              - id: simple-plan
+                name: standard
+                description: A simple plan
   jpa:
     open-in-view: false
     properties:

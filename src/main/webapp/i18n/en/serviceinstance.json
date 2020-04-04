@@ -1,0 +1,29 @@
+{
+  "cloudservicebrokeruiApp": {
+    "serviceinstance": {
+      "home": {
+        "title": "Serviceinstances",
+        "createLabel": "Create a new Serviceinstance",
+        "createOrEditLabel": "Create or edit a Serviceinstance",
+        "notFound": "No Serviceinstances found"
+      },
+      "created": "A new Serviceinstance is created with identifier {{ param }}",
+      "updated": "A Serviceinstance is updated with identifier {{ param }}",
+      "deleted": "A Serviceinstance is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Serviceinstance {{ id }}?"
+      },
+      "detail": {
+        "title": "Serviceinstance"
+      },
+      "instanceId": "Instance Id",
+      "name": "Name",
+      "serviceId": "Service Id",
+      "planId": "Plan Id",
+      "spaceGuid": "Space Guid",
+      "organizationGuid": "Organization Guid",
+      "operationType": "Operation Type",
+      "operationId": "Operation Id"
+    }
+  }
+}

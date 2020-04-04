@@ -12,6 +12,10 @@
     "use-pipe-transform-interface": false,
     "component-class-suffix": true,
     "directive-class-suffix": true,
-    "typedef": [true, "call-signature"]
+    "no-unused-vars": 0,
+    "no-console": [true, "debug", "info", "time", "timeEnd", "trace"],
+
+    "object-literal-sort-keys": false,
+    "typedef": [false, "call-signature"]
   }
 }

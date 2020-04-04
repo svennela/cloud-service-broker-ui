@@ -2,8 +2,10 @@ package com.vmware.csbu.web.rest;
 
 import com.vmware.csbu.domain.CloudServiceBrokerUI;
 import com.vmware.csbu.repository.CloudServiceBrokerUIRepository;
+import com.vmware.csbu.service.CloudServiceBrokerService;
+import com.vmware.csbu.service.ServiceinstanceService;
 import com.vmware.csbu.web.rest.errors.BadRequestAlertException;
-
+import com.vmware.csbu.service.dto.ServiceinstanceDTO;
 import io.github.jhipster.web.util.HeaderUtil;
 import io.github.jhipster.web.util.ResponseUtil;
 import org.slf4j.Logger;
@@ -12,12 +14,12 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
-
+import org.springframework.http.HttpStatus;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.List;
 import java.util.Optional;
-
+import com.vmware.csbu.model.catalog.Catalog;
 /**
  * REST controller for managing {@link com.vmware.csbu.domain.CloudServiceBrokerUI}.
  */
@@ -33,10 +35,17 @@ public class CloudServiceBrokerUIResource {
     @Value("${jhipster.clientApp.name}")
     private String applicationName;
 
+    private final CloudServiceBrokerService servicebroker;
+
+    private final ServiceinstanceService serviceinstanceService;
+
     private final CloudServiceBrokerUIRepository cloudServiceBrokerUIRepository;
 
-    public CloudServiceBrokerUIResource(CloudServiceBrokerUIRepository cloudServiceBrokerUIRepository) {
+    public CloudServiceBrokerUIResource(CloudServiceBrokerUIRepository cloudServiceBrokerUIRepository,
+            CloudServiceBrokerService servicebroker,ServiceinstanceService serviceinstanceService) {
         this.cloudServiceBrokerUIRepository = cloudServiceBrokerUIRepository;
+        this.serviceinstanceService = serviceinstanceService;
+        this.servicebroker = servicebroker;
     }
 
     /**
@@ -102,6 +111,37 @@ public class CloudServiceBrokerUIResource {
         Optional<CloudServiceBrokerUI> cloudServiceBrokerUI = cloudServiceBrokerUIRepository.findById(id);
         return ResponseUtil.wrapOrNotFound(cloudServiceBrokerUI);
     }
+
+
+    @GetMapping("/cloud-service-broker-uis/catalog/{id}")
+    public ResponseEntity<Catalog> getCloudServiceBrokerCatalog(@PathVariable Long id) {
+        log.debug("REST request to get CloudServiceBrokerUI : {}", id);
+        Optional<CloudServiceBrokerUI> cloudServiceBrokerUI = cloudServiceBrokerUIRepository.findById(id);
+        Catalog catalogObj = servicebroker.getBrokerCatalog(cloudServiceBrokerUI.get());
+        return  new ResponseEntity<>(catalogObj, HttpStatus.OK);
+
+       
+    }
+
+    @GetMapping("/cloud-service-broker-uis/deleteservice/{id}")
+    public ResponseEntity<ServiceinstanceDTO> deleteService(@PathVariable Long id) {
+        log.debug("REST request to get CloudServiceBrokerUI : {}", id);
+        Optional<ServiceinstanceDTO>  serviceinstanceDTO = serviceinstanceService.findOne(id);
+        Optional<CloudServiceBrokerUI> cloudServiceBrokerUI = cloudServiceBrokerUIRepository.findById(serviceinstanceDTO.get().getBrokerId());
+        ServiceinstanceDTO serviceinstanceObj = servicebroker.deprovisionService(serviceinstanceDTO.get(),cloudServiceBrokerUI.get());
+
+        // Optional<CloudServiceBrokerUI> cloudServiceBrokerUI = cloudServiceBrokerUIRepository.findById(instanceId);
+        // Catalog catalogObj = servicebroker.getBrokerCatalog(cloudServiceBrokerUI.get());
+         return  new ResponseEntity<>(serviceinstanceObj, HttpStatus.OK);
+    }
+
+    @PostMapping("/cloud-service-broker-uis/{id}/serviceinstance/")
+    public ResponseEntity<ServiceinstanceDTO> createServiceInstance(@PathVariable Long id,@RequestBody ServiceinstanceDTO serviceinstance) throws URISyntaxException {
+        log.debug("REST request to save CloudServiceBrokerUI : {}", serviceinstance);
+        Optional<CloudServiceBrokerUI> cloudServiceBrokerUI = cloudServiceBrokerUIRepository.findById(id);
+        ServiceinstanceDTO obj= servicebroker.provisionService(cloudServiceBrokerUI.get() , serviceinstance);
+        return new ResponseEntity<>(obj, HttpStatus.OK);
+    }   
 
     /**
      * {@code DELETE  /cloud-service-broker-uis/:id} : delete the "id" cloudServiceBrokerUI.

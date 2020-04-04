@@ -1,0 +1,58 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="serviceinstance">
+            <h2><span jhiTranslate="cloudservicebrokeruiApp.serviceinstance.detail.title">Serviceinstance</span> {{ serviceinstance.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="cloudservicebrokeruiApp.serviceinstance.instanceId">Instance Id</span></dt>
+                <dd>
+                    <span>{{ serviceinstance.instanceId }}</span>
+                </dd>
+                <dt><span jhiTranslate="cloudservicebrokeruiApp.serviceinstance.name">Name</span></dt>
+                <dd>
+                    <span>{{ serviceinstance.name }}</span>
+                </dd>
+                <dt><span jhiTranslate="cloudservicebrokeruiApp.serviceinstance.serviceId">Service Id</span></dt>
+                <dd>
+                    <span>{{ serviceinstance.serviceId }}</span>
+                </dd>
+                <dt><span jhiTranslate="cloudservicebrokeruiApp.serviceinstance.planId">Plan Id</span></dt>
+                <dd>
+                    <span>{{ serviceinstance.planId }}</span>
+                </dd>
+                <dt><span jhiTranslate="cloudservicebrokeruiApp.serviceinstance.spaceGuid">Space Guid</span></dt>
+                <dd>
+                    <span>{{ serviceinstance.spaceGuid }}</span>
+                </dd>
+                <dt><span jhiTranslate="cloudservicebrokeruiApp.serviceinstance.organizationGuid">Organization Guid</span></dt>
+                <dd>
+                    <span>{{ serviceinstance.organizationGuid }}</span>
+                </dd>
+                <dt><span jhiTranslate="cloudservicebrokeruiApp.serviceinstance.operationType">Operation Type</span></dt>
+                <dd>
+                    <span>{{ serviceinstance.operationType }}</span>
+                </dd>
+                <dt><span jhiTranslate="cloudservicebrokeruiApp.serviceinstance.operationId">Operation Id</span></dt>
+                <dd>
+                    <span>{{ serviceinstance.operationId }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/serviceinstance', serviceinstance.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

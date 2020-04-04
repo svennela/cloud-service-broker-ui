@@ -30,7 +30,13 @@
                     <li>
                         <a class="dropdown-item" routerLink="cloud-service-broker-ui" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
                             <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
-                            <span jhiTranslate="global.menu.entities.cloudServiceBrokerUi">Cloud Service Broker Ui</span>
+                            <span >Service Broker Connection</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" routerLink="serviceinstance" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                            <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
+                            <span jhiTranslate="global.menu.entities.serviceinstance">Serviceinstance</span>
                         </a>
                     </li>
                     <!-- jhipster-needle-add-entity-to-menu - JHipster will add entities to the menu here -->

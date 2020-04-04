@@ -1,7 +1,7 @@
 {
   "home": {
-    "title": "Welcome, Java Hipster!",
-    "subtitle": "This is your homepage",
+    "title": "CloudServiceBroker UI",
+    "subtitle": "Manage your service broker catalog for multiple Service Brokers at one place",
     "logged": {
       "message": "You are logged in as user \"{{username}}\"."
     },

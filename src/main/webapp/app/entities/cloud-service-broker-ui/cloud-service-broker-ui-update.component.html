@@ -1,7 +1,7 @@
 <div class="row justify-content-center">
     <div class="col-8">
         <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
-            <h2 id="jhi-cloud-service-broker-ui-heading" jhiTranslate="cloudservicebrokeruiApp.cloudServiceBrokerUI.home.createOrEditLabel">Create or edit a Cloud Service Broker UI</h2>
+            <h2 id="jhi-cloud-service-broker-ui-heading" >Create or edit a Service Broker Connection</h2>
 
             <div>
                 <jhi-alert-error></jhi-alert-error>
@@ -31,7 +31,7 @@
 
                 <div class="form-group">
                     <label class="form-control-label" jhiTranslate="cloudservicebrokeruiApp.cloudServiceBrokerUI.password" for="field_password">Password</label>
-                    <input type="text" class="form-control" name="password" id="field_password"
+                    <input type="password" class="form-control" name="password" id="field_password"
                            formControlName="password"/>
                 </div>
 

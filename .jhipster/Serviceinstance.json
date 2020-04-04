@@ -1,0 +1,49 @@
+{
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "relationships": [],
+    "fields": [
+        {
+            "fieldName": "instanceId",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "name",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "serviceId",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "planId",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "spaceGuid",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "organizationGuid",
+            "fieldType": "String",
+            "fieldValidateRules": []
+        },
+        {
+            "fieldName": "operationType",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "operationId",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20200318055419",
+    "dto": "mapstruct",
+    "searchEngine": false,
+    "service": "serviceClass",
+    "entityTableName": "serviceinstance",
+    "databaseType": "sql",
+    "readOnly": false,
+    "jpaMetamodelFiltering": false,
+    "pagination": "pagination"
+}

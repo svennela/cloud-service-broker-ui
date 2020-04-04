@@ -1,11 +1,11 @@
 <div>
     <h2 id="page-heading">
-        <span jhiTranslate="cloudservicebrokeruiApp.cloudServiceBrokerUI.home.title">Cloud Service Broker UIS</span>
+        <span >Service Broker Connections   </span>
 
         <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-cloud-service-broker-ui" [routerLink]="['/cloud-service-broker-ui/new']">
             <fa-icon icon="plus"></fa-icon>
-            <span  jhiTranslate="cloudservicebrokeruiApp.cloudServiceBrokerUI.home.createLabel">
-            Create a new Cloud Service Broker UI
+            <span  >
+                Add a new Service Broker Connection
             </span>
         </button>
     </h2>
@@ -37,7 +37,7 @@
                     <td>{{ cloudServiceBrokerUI.brokerName }}</td>
                     <td>{{ cloudServiceBrokerUI.brokerUrl }}</td>
                     <td>{{ cloudServiceBrokerUI.userName }}</td>
-                    <td>{{ cloudServiceBrokerUI.password }}</td>
+                    <td>*************</td>
                     <td>{{ cloudServiceBrokerUI.env }}</td>
                     <td class="text-right">
                         <div class="btn-group">

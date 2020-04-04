@@ -11,6 +11,7 @@ import { CloudServiceBrokerUIService } from './cloud-service-broker-ui.service';
 import { CloudServiceBrokerUIComponent } from './cloud-service-broker-ui.component';
 import { CloudServiceBrokerUIDetailComponent } from './cloud-service-broker-ui-detail.component';
 import { CloudServiceBrokerUIUpdateComponent } from './cloud-service-broker-ui-update.component';
+import { CloudServiceBrokerCreateInstanceComponent } from './cloud-service-broker-create-instance.component';
 
 @Injectable({ providedIn: 'root' })
 export class CloudServiceBrokerUIResolve implements Resolve<ICloudServiceBrokerUI> {
@@ -62,6 +63,15 @@ export const cloudServiceBrokerUIRoute: Routes = [
     resolve: {
       cloudServiceBrokerUI: CloudServiceBrokerUIResolve
     },
+    data: {
+      authorities: [Authority.USER],
+      pageTitle: 'cloudservicebrokeruiApp.cloudServiceBrokerUI.home.title'
+    },
+    canActivate: [UserRouteAccessService]
+  },
+  {
+    path: 'createservice',
+    component: CloudServiceBrokerCreateInstanceComponent,
     data: {
       authorities: [Authority.USER],
       pageTitle: 'cloudservicebrokeruiApp.cloudServiceBrokerUI.home.title'

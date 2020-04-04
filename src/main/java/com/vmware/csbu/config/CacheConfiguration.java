@@ -43,6 +43,7 @@ public class CacheConfiguration {
             createCache(cm, com.vmware.csbu.domain.Authority.class.getName());
             createCache(cm, com.vmware.csbu.domain.User.class.getName() + ".authorities");
             createCache(cm, com.vmware.csbu.domain.CloudServiceBrokerUI.class.getName());
+            createCache(cm, com.vmware.csbu.domain.Serviceinstance.class.getName());
             // jhipster-needle-ehcache-add-entry
         };
     }

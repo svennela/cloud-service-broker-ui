@@ -1,11 +1,2 @@
 id;broker_name;broker_url;user_name;password;env
-1;Legacy;Response SSL;1080p;New Taiwan Dollar efficient;Home
-2;Paraguay;Way navigating Clothing;Applications;neural;Oregon
-3;Analyst withdrawal Money Market Account;Unbranded Soft Chicken;adapter;Organized grey microchip;calculate Bhutan
-4;compressing generate;payment Faroe Islands;transform;Bouvet Island (Bouvetoya) back-end;action-items
-5;Fantastic Automotive;Gloves syndicate Accountability;Music seize;Unbranded Granite Chips Awesome Tennessee;Direct time-frame orchestrate
-6;Trafficway Fresh;Health enable Personal Loan Account;Rustic Plastic Fish;leverage Mouse Personal Loan Account;Generic Soft Mouse Human Streamlined
-7;Human Roads Jewelery;rich;mission-critical;Drive;generate analyzing Intelligent
-8;Squares reboot;ivory;user-centric;pink Gardens navigate;SDD
-9;payment Idaho Intelligent;collaborative;transmit Frozen;open system microchip;SQL challenge Future
-10;Japan hacking e-tailers;Analyst interface;Sleek;Borders JBOD;Savings Account niches
+1;localhost;http://localhost:8080;brokerapp;password;Local

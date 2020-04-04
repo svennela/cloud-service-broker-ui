@@ -8,6 +8,7 @@
       "entities": {
         "main": "Entities",
         "cloudServiceBrokerUi": "Cloud Service Broker UI",
+        "serviceinstance": "Serviceinstance",
         "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
       },
       "account": {
